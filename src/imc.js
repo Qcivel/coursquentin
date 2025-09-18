@@ -12,8 +12,8 @@ export default class Imc {
     }
 
     display(){
-        
-        return `${this.nom} (${this.poids},${this.taille},a un IMC de: ${this.calculImc()})`
+
+        return `${this.nom} (${this.poids},${this.taille},a un IMC de: ${this.calculImc()}).`.toFixed(2);
     }
 }
 
