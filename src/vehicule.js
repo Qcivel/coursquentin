@@ -33,9 +33,9 @@ export default class Vehicule {
     detect(){
     
         if (this.roue === 2){
-            return true;
+            return "moto";
         } else {
-            return false;
+            return "false";
         }
     }
 
@@ -44,13 +44,13 @@ export default class Vehicule {
         this.vitesse += 50;
     }
 
-    plusRapide (vehicule1,vehicule2){
+    plusRapide (vehicule1){
 
-        if (vehicule1.vitesse > vehicule2.vitesse ){
-            console.log( `${vehicule1.nom} est plus rapide que ${vehicule2.nom}`);
-        } else if ( vehicule2.vitesse > vehicule1.vitesse ) {
-            console.log( `${vehicule2.nom} est plus rapide que ${vehicule1.nom}`);
-        } else if ( vehicule1.vitesse == vehicule2.vitesse ){
+        if (this.vitesse > vehicule1.vitesse ){
+            console.log( `${this.nom} est plus rapide que ${vehicule1.nom}`);
+        } else if ( vehicule1.vitesse > this.vitesse ) {
+            console.log( `${vehicule1.nom} est plus rapide que ${this.nom}`);
+        } else if ( this.vitesse == vehicule1.vitesse ){
             console.log("les vehicules ont la même vitesse !!");
         }
     }

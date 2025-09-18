@@ -11,4 +11,4 @@ voiture.boost();
 console.log(moto.detect(),moto.vitesse);
 console.log(voiture.detect(),voiture.vitesse);
 
-console.log(voiture.plusRapide(voiture,moto));
+console.log(voiture.plusRapide(moto));
