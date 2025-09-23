@@ -1,24 +1,33 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import CompteBancaire from "./compteBancaire.js";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector('#counter'))
+const compteAlex = new CompteBancaire("Alex",1000);
+const compteClovis = new CompteBancaire("Clovis",1000);
+const compteMarco = new CompteBancaire("Marco",1000);
+
+let list = [
+    new CompteBancaire("Alex",1000),
+    new CompteBancaire("Clovis",1000),
+    new CompteBancaire("Marco",1000),
+];
+
+try {
+list[0].retrait(100);
+} catch(error){
+    console.log(error.message);
+}
+try {
+    list[2].virement(300,list[1]);
+} catch (error){
+    console.log(error.message);
+}
+
+try {
+    list[0].retrait(1200);
+} catch(error){
+    console.log(error.message);
+}
+
+console.log(`titulaire: ${list[0].nom}, solde: ${list[0].solde}`);
+console.log(`titulaire: ${list[1].nom}, solde: ${list[1].solde}`);
+console.log(`titulaire: ${list[2].nom}, solde: ${list[2].solde}`);
