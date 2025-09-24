@@ -78,7 +78,7 @@ btCrediter.addEventListener('click', () => {
         //Récupérer le compte bancaire
         const compte = tools.trouverCompteParNom(comptes, montantOperationSanitize);
         //Opération de credit du montant
-        compte.credit(parseFloat(montantOperationSanitize));
+        compte.credit(parseFloat(montantOperation.value));
         //Message de confirmation
         message.innerText = `Le compte : ${montantOperationSanitize} à été crédité de : ${montantOperationSanitize} €, 
         ${compte.afficherCompte()}`;
