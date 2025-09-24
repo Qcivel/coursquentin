@@ -25,20 +25,70 @@ buttonCompte.addEventListener("click", function (){
 
 buttonCrediter.addEventListener("click", function(){
   console.log("test crediter");
-  // let valeur = compte.value;
-  // valeur.crediter(montant.value);
-  // console.log(lesComptes);
+  
   for (const leCompte of lesComptes){
     if (leCompte.nom == compte.value){
-      leCompte.crediter(parseInt(montant.value)); // parseInt trnasoforme la chaine de caractère en nombre
+      leCompte.crediter(parseInt(montant.value)); // parseInt transforme la chaine de caractère en nombre
     } else {
       console.log("le compte n'existe pas");
     }
   }
   console.log(lesComptes);
 });
+
 buttonRetirer.addEventListener("click", function(){
   console.log("test retirer");
-  
-
+  for (const leCompte of lesComptes){
+    if (leCompte.nom == compte.value){
+      leCompte.retrait(parseInt(montant.value)); // parseInt transforme la chaine de caractère en nombre
+    } else {
+      console.log("le compte n'existe pas");
+    }
+  }
+  console.log(lesComptes);
 });
+
+// buttonVirement.addEventListener("click",function(){
+//   console.log("test_virement");
+//   let compteSource = "";
+//   let compteCible = "";
+//   for (const leCompte of lesComptes){
+//     if (leCompte.nom == cible.value ){
+//       compteCible = leCompte;
+//     } 
+//     if (leCompte.nom == source.value) {
+//       compteSource = leCompte;
+//     }
+    
+//   }
+//   compteSource.virement(parseInt(montant_virement.value),compteCible.nom);
+
+// });
+
+buttonVirement.addEventListener("click", function () {
+  console.log("test_virement");
+
+  let compteSource = null;
+  let compteCible = null;
+
+  for (const leCompte of lesComptes) {
+    if (leCompte.nom === cible.value) {
+      compteCible = leCompte;
+    }
+    if (leCompte.nom === source.value) {
+      compteSource = leCompte;
+    }
+  }
+
+  if (compteSource && compteCible) {
+    compteSource.virement(parseInt(montant_virement.value), compteCible);
+    console.log(lesComptes);
+    para.textContent = `Virement de ${montant_virement.value}€ de ${compteSource.nom} vers ${compteCible.nom} effectué.`;
+  } else {
+    para.textContent = "Compte source ou cible introuvable.";
+    console.log("Erreur : compte source ou cible introuvable");
+  }
+});
+
+
+

@@ -27,9 +27,9 @@ export default class CompteBancaire {
         console.log(`Ajout de: ${value} pour: ${this.nom}`)
     }
 
-    virement(valeur,compte1){
-        this.retrait(valeur);
-        compte1.ajout(valeur);
-        console.log(`Virement de: ${valeur} de ${this.nom} vers: ${compte1.nom}`);
+    virement(value,compte1){
+        this.retrait(value);
+        compte1.crediter(value);
+        console.log(`Virement de: ${value} de ${this.nom} vers: ${compte1.nom}`);
     }
 }
